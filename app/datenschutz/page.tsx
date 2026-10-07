@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 
 export default function DatenschutzPage() {
   return (
-    <section className="container-narrow pb-24 pt-36 md:pt-44">
+    <section className="container-narrow pb-20 pt-28 md:pb-24 md:pt-44">
       <span className="eyebrow">Rechtliches</span>
-      <h1 className="h-display mt-5 text-[2.4rem] text-ink md:text-[3rem]">
+      <h1 className="h-display mt-5 text-[2rem] text-ink sm:text-[2.4rem] md:text-[3rem]">
         Datenschutzerklärung
       </h1>
       <div className="mt-10 flex flex-col gap-10 text-[1rem] leading-relaxed text-ink-soft">

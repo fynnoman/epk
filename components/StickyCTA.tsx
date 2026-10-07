@@ -17,8 +17,9 @@ export function StickyCTA() {
   return (
     <div
       aria-hidden={!visible}
+      style={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
       className={[
-        "fixed inset-x-0 bottom-4 z-40 flex justify-center px-4 transition-all duration-500 lg:hidden",
+        "fixed inset-x-0 z-40 flex justify-center px-4 transition-all duration-500 lg:hidden",
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-6 opacity-0",

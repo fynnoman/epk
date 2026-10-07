@@ -27,12 +27,12 @@ export default function LeistungenPage() {
     <>
       {/* Head */}
       <section className="relative isolate overflow-hidden bg-aurora">
-        <div className="container-page relative pt-40 pb-24 md:pt-48 md:pb-28">
+        <div className="container-page relative pt-32 pb-16 md:pt-48 md:pb-28">
           <Reveal>
             <span className="eyebrow">Leistungen</span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="h-display-tight mt-5 max-w-4xl text-[2.6rem] md:text-[4.4rem]">
+            <h1 className="h-display-tight mt-5 max-w-4xl text-[2.2rem] sm:text-[2.6rem] md:text-[4.4rem]">
               Elektrotechnik, nah an Ihrem Alltag.
             </h1>
           </Reveal>
@@ -70,7 +70,7 @@ export default function LeistungenPage() {
             >
               <div
                 className={[
-                  "order-last lg:order-none",
+                  "order-first lg:order-none",
                   reverse ? "lg:order-last" : "",
                 ].join(" ")}
               >

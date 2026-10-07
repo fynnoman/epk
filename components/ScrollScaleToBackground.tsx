@@ -52,7 +52,7 @@ export function ScrollScaleToBackground({
 
   return (
     <section ref={ref} className="relative">
-      <div className="pointer-events-none sticky top-0 -z-10 h-screen w-full overflow-hidden">
+      <div className="pointer-events-none sticky top-0 -z-10 h-[100svh] w-full overflow-hidden">
         <motion.div
           style={{
             scale,

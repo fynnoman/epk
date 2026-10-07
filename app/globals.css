@@ -15,6 +15,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -25,6 +26,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
 }
 
 ::selection {
@@ -244,8 +256,8 @@ body {
 }
 
 .section {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
 }
 
 @media (min-width: 768px) {
@@ -253,6 +265,23 @@ body {
     padding-top: 8rem;
     padding-bottom: 8rem;
   }
+}
+
+/* Safe-area for devices with notch / home indicator */
+.safe-pb {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.safe-pt {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+/* Button min touch target */
+.btn-primary,
+.btn-volt,
+.btn-ghost,
+.btn-outline-light {
+  min-height: 44px;
 }
 
 /* ---------- Link styles ---------- */

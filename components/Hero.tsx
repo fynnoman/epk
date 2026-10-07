@@ -16,10 +16,10 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const yRaw = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
-  const scaleRaw = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const opacityRaw = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
-  const textYRaw = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const yRaw = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const scaleRaw = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const opacityRaw = useTransform(scrollYProgress, [0, 1], [1, 0.35]);
+  const textYRaw = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
   const y = reduced ? 0 : yRaw;
   const scale = reduced ? 1 : scaleRaw;
   const opacity = reduced ? 1 : opacityRaw;
@@ -28,8 +28,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative isolate overflow-hidden"
-      style={{ minHeight: "100vh" }}
+      className="relative isolate overflow-hidden min-h-[100svh] md:min-h-screen"
     >
       <motion.div
         style={{ y, scale, opacity }}
@@ -48,21 +47,21 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(10,13,18,0.55) 0%, rgba(10,13,18,0.35) 35%, rgba(10,13,18,0.75) 100%)",
+              "linear-gradient(180deg, rgba(10,13,18,0.55) 0%, rgba(10,13,18,0.35) 35%, rgba(10,13,18,0.78) 100%)",
           }}
         />
       </motion.div>
 
       <motion.div
         style={{ y: textY }}
-        className="container-page flex min-h-screen flex-col justify-end pb-20 pt-40 text-paper-50 md:pb-28 md:pt-48"
+        className="container-page flex min-h-[100svh] flex-col justify-end pb-16 pt-32 text-paper-50 md:min-h-screen md:pb-28 md:pt-48"
       >
         <div className="max-w-3xl">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/8 px-3 py-1 text-[0.72rem] uppercase tracking-[0.22em] backdrop-blur-md"
+            className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] backdrop-blur-md md:text-[0.72rem]"
           >
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-volt-300" />
             {SITE.tagline}
@@ -72,36 +71,38 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1], delay: 0.1 }}
-            className="h-display-tight mt-6 text-[2.6rem] leading-[1.02] text-paper-50 md:text-[4.4rem] lg:text-[5.4rem]"
+            className="h-display-tight mt-5 text-[2.3rem] leading-[1.03] text-paper-50 sm:text-[2.8rem] md:text-[4.2rem] lg:text-[5.2rem]"
           >
-            Strom, der leise
-            <br />
-            seine Arbeit tut.
+            Elektrotechnik
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
+            für Saarbrücken.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1], delay: 0.22 }}
-            className="mt-7 max-w-xl text-[1.05rem] leading-relaxed text-paper-100/85 md:text-[1.15rem]"
+            className="mt-6 max-w-xl text-[1rem] leading-relaxed text-paper-100/85 md:mt-7 md:text-[1.15rem]"
           >
-            Die EPK GmbH ist Ihr Elektro-Fachbetrieb in Saarbrücken. Vom Zählerplatz
-            über die Photovoltaik bis zur Wallbox: wir setzen Elektrotechnik so um,
-            dass sie zuverlässig läuft, ohne im Alltag aufzufallen.
+            Von Installation und Photovoltaik über Wallbox bis zu Smart Home
+            und Sicherheitstechnik. EPK ist Ihr Fachbetrieb vor Ort, mit
+            festen Ansprechpartnern und sauberer Umsetzung.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1], delay: 0.34 }}
-            className="mt-9 flex flex-wrap items-center gap-3"
+            className="mt-8 flex flex-wrap items-center gap-3 md:mt-9"
           >
             <a href={`tel:${SITE.phoneRaw}`} className="btn-volt">
               <Icon name="phone" size={16} />
-              {SITE.phone}
+              <span className="hidden sm:inline">{SITE.phone}</span>
+              <span className="sm:hidden">Jetzt anrufen</span>
             </a>
             <Link href="/leistungen" className="btn-outline-light">
-              Leistungen ansehen
+              Leistungen
               <Icon name="arrow" size={14} />
             </Link>
           </motion.div>
@@ -110,10 +111,10 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.1, delay: 0.5 }}
-            className="mt-14 grid max-w-xl grid-cols-2 gap-6 border-t border-white/20 pt-7 text-[0.9rem] text-paper-100/80"
+            className="mt-10 hidden max-w-xl grid-cols-2 gap-6 border-t border-white/20 pt-6 text-[0.9rem] text-paper-100/80 sm:grid md:mt-14 md:pt-7"
           >
             <div>
-              <div className="text-[0.72rem] uppercase tracking-[0.22em] text-paper-100/55">
+              <div className="text-[0.68rem] uppercase tracking-[0.22em] text-paper-100/55 md:text-[0.72rem]">
                 Sitz
               </div>
               <div className="mt-1.5">
@@ -121,7 +122,7 @@ export function Hero() {
               </div>
             </div>
             <div>
-              <div className="text-[0.72rem] uppercase tracking-[0.22em] text-paper-100/55">
+              <div className="text-[0.68rem] uppercase tracking-[0.22em] text-paper-100/55 md:text-[0.72rem]">
                 Geschäftsleitung
               </div>
               <div className="mt-1.5">{SITE.owner}</div>
@@ -130,12 +131,13 @@ export function Hero() {
         </div>
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center">
+      {/* Scroll cue, hidden on short landscape phones to avoid overlap */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-4 hidden justify-center sm:flex md:bottom-6">
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1, duration: 0.9 }}
-          className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[0.72rem] uppercase tracking-[0.2em] text-paper-100/80 backdrop-blur"
+          className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.2em] text-paper-100/80 backdrop-blur md:text-[0.72rem]"
         >
           <span className="relative inline-block h-4 w-4 overflow-hidden">
             <motion.span

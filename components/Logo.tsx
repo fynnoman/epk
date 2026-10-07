@@ -3,56 +3,109 @@ import Link from "next/link";
 type Props = {
   variant?: "dark" | "light";
   compact?: boolean;
+  withTagline?: boolean;
+  className?: string;
 };
 
-export function Logo({ variant = "dark", compact = false }: Props) {
-  const ink = variant === "light" ? "#FBFBFD" : "#0E1116";
-  const sub = variant === "light" ? "rgba(251,251,253,0.72)" : "#5B616E";
-  const volt = "#1E54F0";
+/**
+ * EPK brand mark. Rendered inline as SVG so it stays sharp at any size and
+ * can swap between a dark-on-light and a light-on-dark variant.
+ *
+ * - `compact` renders only the EPK mark without the ELEKTROTECHNIK subtitle.
+ * - `withTagline` renders the small eyebrow line under the mark.
+ */
+export function Logo({
+  variant = "dark",
+  compact = false,
+  withTagline = false,
+  className,
+}: Props) {
+  const navy = variant === "light" ? "#F2F5FB" : "#0F2B5C";
+  const volt = variant === "light" ? "#6F97FF" : "#1E54F0";
+  const tagline = variant === "light" ? "rgba(242,245,251,0.72)" : "#5B616E";
+
+  // The EPK letters are drawn with simple rects + lines so the "K" can carry
+  // the two-tone navy/blue detail from the brand.
+  const Mark = (
+    <svg
+      viewBox="0 0 380 150"
+      role="img"
+      aria-label="EPK Elektrotechnik"
+      className="h-full w-auto"
+      preserveAspectRatio="xMinYMid meet"
+    >
+      {/* E */}
+      <g fill={navy}>
+        <rect x="0" y="0" width="22" height="110" />
+        <rect x="0" y="0" width="96" height="22" />
+        <rect x="0" y="44" width="82" height="22" />
+        <rect x="0" y="88" width="96" height="22" />
+      </g>
+      {/* P */}
+      <g fill={navy}>
+        <rect x="120" y="0" width="22" height="110" />
+        <rect x="120" y="0" width="72" height="22" />
+        <rect x="178" y="0" width="22" height="66" />
+        <rect x="120" y="44" width="72" height="22" />
+      </g>
+      {/* K: left stem navy, upper diagonal navy, lower diagonal volt-blue */}
+      <g>
+        <rect x="220" y="0" width="22" height="110" fill={navy} />
+        <line
+          x1="242"
+          y1="55"
+          x2="320"
+          y2="0"
+          stroke={navy}
+          strokeWidth="22"
+          strokeLinecap="square"
+        />
+        <line
+          x1="242"
+          y1="55"
+          x2="320"
+          y2="110"
+          stroke={volt}
+          strokeWidth="22"
+          strokeLinecap="square"
+        />
+      </g>
+      {!compact && (
+        <text
+          x="0"
+          y="142"
+          fill={navy}
+          fontFamily="var(--font-sans), Inter, system-ui, sans-serif"
+          fontSize="18"
+          fontWeight={400}
+          letterSpacing="6.2"
+        >
+          ELEKTROTECHNIK
+        </text>
+      )}
+    </svg>
+  );
 
   return (
-    <Link href="/" aria-label="EPK GmbH, Startseite" className="group inline-flex items-center gap-3">
+    <Link
+      href="/"
+      aria-label="EPK Elektrotechnik, Startseite"
+      className={["group inline-flex items-center gap-3", className ?? ""].join(" ")}
+    >
       <span
-        aria-hidden
-        className="relative inline-flex h-9 w-9 items-center justify-center rounded-2xl"
-        style={{
-          background:
-            variant === "light"
-              ? "linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04))"
-              : "linear-gradient(180deg, #ffffff, #F5F6F8)",
-          boxShadow:
-            variant === "light"
-              ? "inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1)"
-              : "inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(14,17,22,0.08)",
-          border:
-            variant === "light"
-              ? "1px solid rgba(255,255,255,0.25)"
-              : "1px solid rgba(14,17,22,0.06)",
-        }}
+        className="relative inline-flex items-center"
+        style={{ height: compact ? 28 : 40 }}
       >
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden>
-          <path
-            d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"
-            fill={volt}
-            stroke={volt}
-            strokeLinejoin="round"
-            strokeWidth="1"
-          />
-        </svg>
+        {Mark}
       </span>
-      <span className="flex flex-col leading-none">
+      {withTagline && (
         <span
-          className="font-display text-[1rem] tracking-tightish"
-          style={{ color: ink }}
+          className="hidden text-[0.7rem] uppercase tracking-[0.22em] md:inline"
+          style={{ color: tagline }}
         >
-          EPK <span style={{ color: volt }}>GmbH</span>
+          Saarbrücken
         </span>
-        {!compact && (
-          <span className="mt-0.5 text-[0.72rem] tracking-[0.18em] uppercase" style={{ color: sub }}>
-            Elektro Saarbrücken
-          </span>
-        )}
-      </span>
+      )}
     </Link>
   );
 }

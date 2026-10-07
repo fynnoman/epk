@@ -18,12 +18,12 @@ export default function UnternehmenPage() {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-aurora">
-        <div className="container-page relative pt-40 pb-24 md:pt-48 md:pb-28">
+        <div className="container-page relative pt-32 pb-16 md:pt-48 md:pb-28">
           <Reveal>
             <span className="eyebrow">Unternehmen</span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="h-display-tight mt-5 max-w-4xl text-[2.6rem] md:text-[4.4rem]">
+            <h1 className="h-display-tight mt-5 max-w-4xl text-[2.2rem] sm:text-[2.6rem] md:text-[4.4rem]">
               Ein Fachbetrieb aus Saarbrücken, kurze Wege, feste Ansprechpartner.
             </h1>
           </Reveal>
@@ -45,7 +45,7 @@ export default function UnternehmenPage() {
         overlay="strong"
       >
         <div className="relative text-paper-50">
-          <div className="container-page flex min-h-[85vh] flex-col justify-end py-28 md:py-36">
+          <div className="container-page flex min-h-[80svh] flex-col justify-end py-20 md:py-36">
             <Reveal>
               <span className="eyebrow" style={{ color: "#9FBAFF" }}>
                 Standort

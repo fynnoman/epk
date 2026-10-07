@@ -22,12 +22,12 @@ export default function KontaktPage() {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-aurora">
-        <div className="container-page relative pt-40 pb-20 md:pt-48 md:pb-24">
+        <div className="container-page relative pt-32 pb-14 md:pt-48 md:pb-24">
           <Reveal>
             <span className="eyebrow">Kontakt</span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="h-display-tight mt-5 max-w-4xl text-[2.6rem] md:text-[4.4rem]">
+            <h1 className="h-display-tight mt-5 max-w-4xl text-[2.2rem] sm:text-[2.6rem] md:text-[4.4rem]">
               Ein Anruf reicht.
             </h1>
           </Reveal>

@@ -62,7 +62,7 @@ export function Header() {
             scrolled ? "glass-strong" : "bg-transparent",
           ].join(" ")}
         >
-          <Logo compact variant={lightMode ? "light" : "dark"} />
+          <Logo compact variant={lightMode ? "light" : "dark"} className="shrink-0" />
 
           <nav
             aria-label="Hauptnavigation"

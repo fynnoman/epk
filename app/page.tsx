@@ -29,7 +29,7 @@ export default function HomePage() {
               <span className="eyebrow">Fachbetrieb Saarbrücken</span>
             </Reveal>
             <Reveal delay={0.05}>
-              <h2 className="h-display mt-5 text-[2.1rem] text-ink md:text-[3rem]">
+              <h2 className="h-display mt-5 text-[1.85rem] sm:text-[2.1rem] text-ink md:text-[3rem]">
                 Elektrotechnik, in der jede Verbindung sitzt.
               </h2>
             </Reveal>
@@ -83,14 +83,14 @@ export default function HomePage() {
         overlay="strong"
       >
         <div className="relative text-paper-50">
-          <div className="container-page flex min-h-[90vh] flex-col justify-end py-28 md:py-40">
+          <div className="container-page flex min-h-[85svh] flex-col justify-end py-20 md:py-40">
             <Reveal>
               <span className="eyebrow" style={{ color: "#9FBAFF" }}>
                 Haltung
               </span>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="h-display-tight mt-5 max-w-3xl text-[2.4rem] md:text-[4rem]">
+              <h2 className="h-display-tight mt-5 max-w-3xl text-[2rem] sm:text-[2.4rem] md:text-[4rem]">
                 Jede Leitung wird so verlegt, als würden wir sie morgen selbst
                 prüfen.
               </h2>
@@ -115,7 +115,7 @@ export default function HomePage() {
               <span className="eyebrow">Leistungen</span>
             </Reveal>
             <Reveal delay={0.05}>
-              <h2 className="h-display mt-5 max-w-2xl text-[2.1rem] text-ink md:text-[3rem]">
+              <h2 className="h-display mt-5 max-w-2xl text-[1.85rem] sm:text-[2.1rem] text-ink md:text-[3rem]">
                 Sechs Felder, ein Verständnis.
               </h2>
             </Reveal>
@@ -191,7 +191,7 @@ export default function HomePage() {
             <span className="eyebrow">Was uns ausmacht</span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="h-display mt-5 text-[2.1rem] text-ink md:text-[3rem]">
+            <h2 className="h-display mt-5 text-[1.85rem] sm:text-[2.1rem] text-ink md:text-[3rem]">
               Verlässlich, in jedem Detail.
             </h2>
           </Reveal>
@@ -227,7 +227,7 @@ export default function HomePage() {
               <span className="eyebrow">Ablauf</span>
             </Reveal>
             <Reveal delay={0.05}>
-              <h2 className="h-display mt-5 max-w-2xl text-[2.1rem] text-ink md:text-[3rem]">
+              <h2 className="h-display mt-5 max-w-2xl text-[1.85rem] sm:text-[2.1rem] text-ink md:text-[3rem]">
                 Von der Anfrage zur Übergabe.
               </h2>
             </Reveal>

@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="relative mt-24 bg-ink text-paper-100">
       <div className="container-page grid gap-14 py-20 md:py-24 lg:grid-cols-[1.1fr_1fr_1fr]">
         <div>
-          <Logo compact variant="light" />
+          <Logo variant="light" />
           <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-paper-100/75">
             Elektro-Fachbetrieb in Saarbrücken. Installation, Reparatur und
             Technik, die man im Alltag kaum bemerkt.
